@@ -13,7 +13,8 @@ for file in os.listdir("data"):
         t = soup.find(class_="KzDlHZ")
         title = t.get_text()
         p = soup.find("div",attrs={"class":"_4b5DiR"})
-        price = p.get_text()
+        cleaned_p = p.get_text()
+        price = cleaned_p.replace('â‚¹', '').replace(',', '')
         l = soup.find(class_="CGtC98")
         link = "https://www.flipkart.com"+l['href']
         
